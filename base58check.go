@@ -1,3 +1,4 @@
+// Copyright (c) 2018 The ExchangeCoin team
 // Copyright (c) 2013-2014 The btcsuite developers
 // Copyright (c) 2015 The Decred developers
 // Use of this source code is governed by an ISC
@@ -6,9 +7,8 @@
 package base58
 
 import (
+	"crypto/sha256"
 	"errors"
-
-	"github.com/dchest/blake256"
 )
 
 // ErrChecksum indicates that the checksum of a check-encoded string does not verify against
@@ -18,15 +18,11 @@ var ErrChecksum = errors.New("checksum error")
 // ErrInvalidFormat indicates that the check-encoded string has an invalid format.
 var ErrInvalidFormat = errors.New("invalid format: version and/or checksum bytes missing")
 
-// checksum: first four bytes of double-BLAKE256.
+// checksum: first four bytes of sha256^2
 func checksum(input []byte) (cksum [4]byte) {
-	h := blake256.New()
-	h.Write(input)
-	intermediateHash := h.Sum(nil)
-	h.Reset()
-	h.Write(intermediateHash)
-	finalHash := h.Sum(nil)
-	copy(cksum[:], finalHash[:])
+	h := sha256.Sum256(input)
+	h2 := sha256.Sum256(h[:])
+	copy(cksum[:], h2[:4])
 	return
 }
 

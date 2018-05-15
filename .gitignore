@@ -2,3 +2,4 @@ Gopkg.lock
 *~
 *.orig
 vendor/
+.idea/

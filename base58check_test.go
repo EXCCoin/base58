@@ -1,3 +1,4 @@
+// Copyright (c) 2018 The ExchangeCoin team
 // Copyright (c) 2013-2014 The btcsuite developers
 // Copyright (c) 2015 The Decred developers
 // Use of this source code is governed by an ISC
@@ -8,7 +9,7 @@ package base58_test
 import (
 	"testing"
 
-	"github.com/decred/base58"
+	"github.com/EXCCoin/base58"
 )
 
 var checkEncodingStringTests = []struct {
@@ -16,17 +17,17 @@ var checkEncodingStringTests = []struct {
 	in      string
 	out     string
 }{
-	{20, "", "Axk2WA6L"},
-	{20, " ", "kxg5DGCa1"},
-	{20, "-", "kxhWqwoTY"},
-	{20, "0", "kxhrrcZDw"},
-	{20, "1", "kxhzgbzwe"},
-	{20, "-1", "4M2qnQVfVwu"},
-	{20, "11", "4M2smzp65NR"},
-	{20, "abc", "FmT72s9HXyp6"},
-	{20, "1234598760", "3UFLKR4oYrL1hSX1Eu2W3F"},
-	{20, "abcdefghijklmnopqrstuvwxyz", "2M5VSfthNqvveeGWTcKRgY4Rm258o4ZDKBZGkAQ799jp"},
-	{20, "00000000000000000000000000000000000000000000000000000000000000", "3cmTs9hNQGCVmurJUgS7UokKFYZCCJWvWfYRBCaox5hXDn3Giiy1u9AEKn7vLS8K87BcDr6Ckr4JYRnnaSMRDsB49i3eU"},
+	{20, "", "Axhppa8m"},
+	{20, " ", "kxg8SBkM8"},
+	{20, "-", "kxhWpA6cc"},
+	{20, "0", "kxhu1ybpU"},
+	{20, "1", "kxhxbz7Yy"},
+	{20, "-1", "4M2qnPwaJCF"},
+	{20, "11", "4M2smyQkogP"},
+	{20, "abc", "FmT72s7MpKqS"},
+	{20, "1234598760", "3UFLKR4oYrL1hSX1DmPYSM"},
+	{20, "abcdefghijklmnopqrstuvwxyz", "2M5VSfthNqvveeGWTcKRgY4Rm258o4ZDKBZGkAQBHEUE"},
+	{20, "00000000000000000000000000000000000000000000000000000000000000", "3cmTs9hNQGCVmurJUgS7UokKFYZCCJWvWfYRBCaox5hXDn3Giiy1u9AEKn7vLS8K87BcDr6Ckr4JYRnnaSMRDsB6p2HvZ"},
 }
 
 func TestBase58Check(t *testing.T) {

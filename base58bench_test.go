@@ -1,3 +1,4 @@
+// Copyright (c) 2018 The ExchangeCoin team
 // Copyright (c) 2013-2014 The btcsuite developers
 // Copyright (c) 2015 The Decred developers
 // Use of this source code is governed by an ISC
@@ -9,7 +10,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/decred/base58"
+	"github.com/EXCCoin/base58"
 )
 
 func BenchmarkBase58Encode(b *testing.B) {
